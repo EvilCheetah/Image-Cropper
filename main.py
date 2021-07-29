@@ -1,27 +1,8 @@
-def check_lengths_of_lists(num_names: int, num_images: int) -> None:
-    if (num_names < num_images):
-        raise Exception(messages.NUM_NAMES_LESS_THAN_NUM_IMAGES)
-    if (num_names > num_images):
-        raise Exception(messages.NUM_NAMES_GREATER_THAN_NUM_IMAGES)
-
+from image_cropper import ImageCropper
 
 
 def main():
-    # Reads in the future names of the files
-    with open(NAMES, 'r') as fin:
-        image_names = [name.strip() for name in fin.readlines()]
-
-    # Reads in the paths of all image files in the directory
-    file_paths = list(Path(IMAGES).glob(f'*.{EXTENSION}'))
-
-    check_lengths_of_lists(len(image_names), len(file_paths))
-
-    # Opens, crops, saves the image
-    for name, path in zip(image_names, file_paths):
-        image = Image.open(path)
-        image = image.crop(AREA)
-        image.save(f'{name}.{EXTENSION}')
-
+    ImageCropper.main()
 
 
 if __name__ == '__main__':
