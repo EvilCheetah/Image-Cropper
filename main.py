@@ -1,24 +1,3 @@
-import environ
-import messages
-from pathlib import Path
-from PIL import Image
-
-env = environ.Env()
-environ.Env.read_env()
-
-IMAGES                = env('PATH_TO_IMAGES')
-NAMES                 = env('PATH_TO_NAMES_LIST')
-EXTENSION             = env('IMAGE_EXTENSION')
-OUTPUT_FOLDER         = env('OUTPUT_FOLDER')
-DELETE_ORIGINAL_FILES = bool(env('DELETE_ORIGINAL_FILES'))
-AREA                  = (
-    int(env('START_COORDINATE_X')),
-    int(env('START_COORDINATE_Y')),
-    int(env('END_COORDINATE_X')),
-    int(env('END_COORDINATE_Y'))
-)
-
-
 def check_lengths_of_lists(num_names: int, num_images: int) -> None:
     if (num_names < num_images):
         raise Exception(messages.NUM_NAMES_LESS_THAN_NUM_IMAGES)
@@ -50,5 +29,5 @@ if __name__ == '__main__':
         main()
     except KeyboardInterrupt:
         print(u'Program was terminated! \u274c')
-    # except Exception as error:
-    #     print(error)
+    except Exception as error:
+        print(error)
