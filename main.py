@@ -2,7 +2,7 @@ from image_cropper import ImageCropper
 
 
 def main():
-    ImageCropper.main()
+    ImageCropper().crop()
 
 
 if __name__ == '__main__':
@@ -11,4 +11,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print(u'Program was terminated! \u274c')
     except Exception as error:
-        print(error)
+       print(error)
