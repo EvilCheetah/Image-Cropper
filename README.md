@@ -5,7 +5,7 @@ The program was created to automate the image cropping process. I used it to cro
 
 Basically, it was turning this:
 
-![Image Before Cropping](img/Initial_image.png)
+![Image Before Cropping](img/Initial_Image.png)
 
 Into this:
 
